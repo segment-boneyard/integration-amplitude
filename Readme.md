@@ -1,8 +1,8 @@
-[![Build Status](https://circleci.com/gh/segmentio/integration-amplitude.png)](https://circleci.com/gh/segmentio/integration-amplitude)
+[![Build Status](https://circleci.com/gh/segmentio/integration-amplitude/tree/master.png?style=badge)](https://circleci.com/gh/segmentio/integration-amplitude/tree/master)
 
-# Amplitude server-side integration.
+# integration-amplitude
 
-Write me...
+Amplitude server-side integration for Segment.
 
 
 ## License
