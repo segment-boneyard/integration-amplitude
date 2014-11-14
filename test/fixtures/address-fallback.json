@@ -1,0 +1,33 @@
+{
+  "input": {
+    "type": "page",
+    "userId": "user-id",
+    "timestamp": "2014",
+    "properties": {
+      "property": true
+    },
+    "context": {
+      "traits": {
+        "address": {
+          "country": "USA",
+          "city": "San Francisco",
+          "region": "California"
+        }
+      }
+    }
+  },
+  "output": {
+    "user_id": "user-id",
+    "time": 1388534400000,
+    "event_type": "Loaded a Page",
+    "country": "USA",
+    "city": "San Francisco",
+    "region": "California",
+    "user_properties": {
+      "id": "user-id"
+    },
+    "event_properties": {
+      "property": true
+    }
+  }
+}
