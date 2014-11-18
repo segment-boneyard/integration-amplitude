@@ -18,7 +18,10 @@
       },
       "library": { "name": "analytics-ios" },
       "app": { "version": "app-version" },
-      "os": { "version": "os-version" },
+      "os": {
+        "name": "os-name",
+        "version": "os-version"
+      },
       "network": { "carrier": "carrier" },
       "ip": "0.0.0.0",
       "location": {
@@ -39,10 +42,11 @@
     "session_id": "session-id",
     "event_id": "event-id",
     "app_version": "app-version",
-    "client_os": "os-version",
-    "client_sdk": "analytics-ios",
+    "platform": "analytics-ios",
+    "os_name": "os-name",
+    "os_version": "os-version",
     "device_brand": "device-brand",
-    "device_carrier": "carrier",
+    "carrier": "carrier",
     "device_id": "device-id",
     "device_manufacturer": "device-manufacturer",
     "ip": "0.0.0.0",
