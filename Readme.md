@@ -1,6 +1,5 @@
-[![Build Status](https://circleci.com/gh/segmentio/integration-amplitude/tree/master.png?style=badge)](https://circleci.com/gh/segmentio/integration-amplitude/tree/master)
 
-# integration-amplitude
+# integration-amplitude [![Circle CI](https://circleci.com/gh/segmentio/integration-amplitude.png?style=badge&circle-token=703b942645cc4b77ad489cab6d7937d932b55b8b)](https://circleci.com/gh/segmentio/integration-amplitude)
 
 Amplitude server-side integration for Segment.
 
