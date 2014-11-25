@@ -5,6 +5,7 @@
     "event": "my-event",
     "timestamp": "2014",
     "properties": {
+      "country": "United States",
       "revenue": 19.99,
       "property": true
     },
@@ -15,6 +16,7 @@
         "brand": "device-brand",
         "manufacturer": "device-manufacturer"
       },
+      "locale": "en",
       "library": { "name": "analytics-ios" },
       "app": { "version": "app-version" },
       "os": {
@@ -49,6 +51,8 @@
     "device_id": "device-id",
     "device_manufacturer": "device-manufacturer",
     "ip": "0.0.0.0",
+    "language": "English",
+    "country": "United States",
     "location_lat": 1.0,
     "location_lng": 1.0,
     "device_model": "device-model",

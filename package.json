@@ -22,7 +22,7 @@
   "devDependencies": {
     "istanbul": "0.x",
     "jscs": "1.x",
-    "locale-string": "^1.0.0",
+    "locale-string": "1.1.0",
     "merge-util": "^0.1.0",
     "mocha": "2.x",
     "ms": "0.x",
