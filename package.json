@@ -1,6 +1,6 @@
 {
   "name": "integration-amplitude",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "private": true,
   "description": "Amplitude server-side integration",
   "author": "Segment <friends@segment.com>",
