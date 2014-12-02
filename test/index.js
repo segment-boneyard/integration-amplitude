@@ -20,8 +20,7 @@ describe('Amplitude', function() {
     test
       .name('Amplitude')
       .channels(['server', 'mobile'])
-      .ensure('settings.apiKey')
-      .retries(2);
+      .ensure('settings.apiKey');
   });
 
   describe('.validate()', function() {
