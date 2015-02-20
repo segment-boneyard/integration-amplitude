@@ -64,6 +64,16 @@ describe('Amplitude', function() {
       });
     });
 
+    describe('identify', function(){
+      it('should map basic identify', function(){
+        test.maps('identify-basic');
+      });
+
+      it('should map full identify', function(){
+        test.maps('identify-full');
+      });
+    });
+
     it('should remove `event_id`, `revenue`, `language` and `amplitude_event_type` from properties', function(){
       test.maps('clean');
     });
@@ -152,11 +162,61 @@ describe('Amplitude', function() {
         .expects(200, done);
     });
 
+    it('should track ios properly', function(done){
+      var json = test.fixture('track-ios');
+      test
+        .set(settings)
+        .track(json.input)
+        .query('api_key', settings.apiKey)
+        .query('event', json.output, JSON.parse)
+        .expects(200, done);
+    });
+
+    it('should track android properly', function(done){
+      var json = test.fixture('track-android');
+      test
+        .set(settings)
+        .track(json.input)
+        .query('api_key', settings.apiKey)
+        .query('event', json.output, JSON.parse)
+        .expects(200, done);
+    });
+
     it('should error on invalid creds', function(done){
       var json = test.fixture('track-basic');
       test
         .set({ apiKey: 'foo' })
         .track(json.input)
+        .error(done);
+    });
+  });
+
+  describe('.identify()', function() {
+    it('should map identify calls correctly', function(done){
+      var json = test.fixture('identify-basic');
+      test
+        .set(settings)
+        .identify(json.input)
+        .query('api_key', settings.apiKey)
+        .query('identification', json.output, JSON.parse)
+        .expects(200, done);
+    });
+
+    it('should map identify calls properly', function(done){
+      var json = test.fixture('identify-full');
+      test
+        .set(settings)
+        .identify(json.input)
+        .query('api_key', settings.apiKey)
+        .query('identification', json.output, JSON.parse)
+        .expects(200, done);
+    });
+
+    it('should error on invalid creds', function(done){
+      var json = test.fixture('identify-basic');
+      test
+        .set({ apiKey: 'foo' })
+        .identify(json.input)
         .error(done);
     });
   });
