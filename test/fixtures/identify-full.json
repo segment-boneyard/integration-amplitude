@@ -1,0 +1,62 @@
+{
+  "input": {
+    "type": "identify",
+    "userId": "user-id",
+    "event": "my-event",
+    "timestamp": "2014",
+    "context": {
+      "device": {
+        "id": "device-id",
+        "model": "device-model",
+        "brand": "device-brand",
+        "manufacturer": "device-manufacturer"
+      },
+      "locale": "en",
+      "library": { "name": "analytics-ios" },
+      "app": { "version": "app-version" },
+      "os": {
+        "name": "os-name",
+        "version": "os-version"
+      },
+      "network": { "carrier": "carrier" },
+      "ip": "0.0.0.0",
+      "location": {
+        "latitude": 1.0,
+        "longitude": 1.0
+      }
+    },
+    "traits": {
+      "address": {
+        "country": "United States"
+      }
+    },
+    "integrations": {
+      "Amplitude": {
+        "eventType": "amplitude-event-type",
+        "sessionId": 1,
+        "eventId": 1
+      }
+    }
+  },
+  "output": {
+    "app_version": "app-version",
+    "platform": "analytics-ios",
+    "os_name": "os-name",
+    "os_version": "os-version",
+    "device_brand": "device-brand",
+    "carrier": "carrier",
+    "device_id": "device-id",
+    "device_manufacturer": "device-manufacturer",
+    "ip": "0.0.0.0",
+    "language": "English",
+    "country": "United States",
+    "location_lat": 1.0,
+    "location_lng": 1.0,
+    "device_model": "device-model",
+    "user_id": "user-id",
+    "time": 1388534400000,
+    "user_properties": {
+      "id": "user-id"
+    }
+  }
+}
