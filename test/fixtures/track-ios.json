@@ -14,13 +14,14 @@
         "id": "device-id",
         "model": "device-model",
         "brand": "device-brand",
-        "manufacturer": "device-manufacturer"
+        "manufacturer": "device-manufacturer",
+        "idfa": "device-idfa"
       },
       "locale": "en-US",
       "library": { "name": "analytics-ios" },
       "app": { "version": "app-version" },
       "os": {
-        "name": "os-name",
+        "name": "iOS",
         "version": "os-version"
       },
       "network": { "carrier": "carrier" },
@@ -44,12 +45,13 @@
     "event_id": 1,
     "app_version": "app-version",
     "platform": "analytics-ios",
-    "os_name": "os-name",
+    "os_name": "iOS",
     "os_version": "os-version",
     "device_brand": "device-brand",
     "carrier": "carrier",
     "device_id": "device-id",
     "device_manufacturer": "device-manufacturer",
+    "idfa": "device-idfa",
     "ip": "0.0.0.0",
     "language": "English",
     "country": "United States",

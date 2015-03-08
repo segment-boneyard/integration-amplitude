@@ -1,14 +1,9 @@
 {
   "input": {
-    "type": "track",
+    "type": "identify",
     "userId": "user-id",
     "event": "my-event",
     "timestamp": "2014",
-    "properties": {
-      "country": "United States",
-      "revenue": 19.99,
-      "property": true
-    },
     "context": {
       "device": {
         "id": "device-id",
@@ -30,6 +25,11 @@
         "longitude": 1.0
       }
     },
+    "traits": {
+      "address": {
+        "country": "United States"
+      }
+    },
     "integrations": {
       "Amplitude": {
         "eventType": "amplitude-event-type",
@@ -39,9 +39,6 @@
     }
   },
   "output": {
-    "amplitude_event_type": "amplitude-event-type",
-    "session_id": 1,
-    "event_id": 1,
     "app_version": "app-version",
     "platform": "analytics-ios",
     "os_name": "os-name",
@@ -57,14 +54,9 @@
     "location_lng": 1.0,
     "device_model": "device-model",
     "user_id": "user-id",
-    "revenue": 19.99,
     "time": 1388534400000,
-    "event_type": "my-event",
     "user_properties": {
       "id": "user-id"
-    },
-    "event_properties": {
-      "property": true
     }
   }
 }

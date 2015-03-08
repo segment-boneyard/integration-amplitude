@@ -1,0 +1,25 @@
+{
+  "input": {
+    "type": "identify",
+    "userId": "user-id",
+    "event": "my-event",
+    "timestamp": "2014",
+    "properties": {
+      "revenue": 19.99,
+      "property": true
+    },
+    "traits": {
+      "address": {
+        "country": "some-country"
+      }
+    }
+  },
+  "output": {
+    "user_id": "user-id",
+    "country": "some-country",
+    "time": 1388534400000,
+    "user_properties": {
+      "id": "user-id"
+    }
+  }
+}
