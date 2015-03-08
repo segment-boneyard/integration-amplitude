@@ -11,7 +11,7 @@
         "brand": "device-brand",
         "manufacturer": "device-manufacturer"
       },
-      "locale": "en",
+      "locale": "en-US",
       "library": { "name": "analytics-ios" },
       "app": { "version": "app-version" },
       "os": {

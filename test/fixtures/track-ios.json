@@ -17,7 +17,7 @@
         "manufacturer": "device-manufacturer",
         "idfa": "device-idfa"
       },
-      "locale": "en",
+      "locale": "en-US",
       "library": { "name": "analytics-ios" },
       "app": { "version": "app-version" },
       "os": {
