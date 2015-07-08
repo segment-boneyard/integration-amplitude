@@ -1,4 +1,12 @@
 
+1.0.10 / 2015-07-08
+===================
+
+  * Merge pull request #5 from kellyfj/master
+  * Support advertistingId
+  * Merge pull request #4 from segmentio/update-changelog
+  * Update History.md
+
 1.0.9 / 2015-03-09
 ==================
 
