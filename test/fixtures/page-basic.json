@@ -19,6 +19,7 @@
     "user_id": "user-id",
     "time": 1388534400000,
     "event_type": "Loaded a Page",
+    "library": "segment",
     "user_properties": {
       "id": "user-id"
     },

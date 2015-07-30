@@ -23,6 +23,7 @@
     "country": "USA",
     "city": "San Francisco",
     "region": "California",
+    "library": "segment",
     "user_properties": {
       "id": "user-id"
     },
