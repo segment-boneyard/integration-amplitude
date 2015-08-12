@@ -62,6 +62,7 @@
     "revenue": 19.99,
     "time": 1388534400000,
     "event_type": "my-event",
+    "library": "segment",
     "user_properties": {
       "id": "user-id"
     },
