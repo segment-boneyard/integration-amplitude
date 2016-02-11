@@ -16,5 +16,5 @@ deployment:
   push:
    branch: master
    commands:
-    - curl -sL $BUILD | sh
+    - curl -sLu "$AUTH:" $BUILD | sh
 
