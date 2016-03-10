@@ -5,7 +5,7 @@ var mapper = require('../lib/mapper');
 var assert = require('assert');
 var Amplitude = require('..');
 
-describe('Amplitude', function() {
+describe('Amplitude', function(){
   var amplitude;
   var settings;
   var test;
@@ -23,7 +23,7 @@ describe('Amplitude', function() {
       .ensure('settings.apiKey');
   });
 
-  describe('.validate()', function() {
+  describe('.validate()', function(){
     it('should not be valid without an api key', function(){
       test.invalid({}, {});
     });
@@ -83,8 +83,8 @@ describe('Amplitude', function() {
     });
   });
 
-  describe('.page()', function() {
-    it('should map page calls correctly', function(done) {
+  describe('.page()', function(){
+    it('should map page calls correctly', function(done){
       var json = test.fixture('page-basic');
       test
         .set(settings)
@@ -118,7 +118,7 @@ describe('Amplitude', function() {
         .expects(200, done);
     });
 
-    it('should be able to process screen calls with bad fields', function(done) {
+    it('should be able to process screen calls with bad fields', function(done){
       amplitude.screen(helpers.screen(), done);
     });
 
@@ -131,7 +131,7 @@ describe('Amplitude', function() {
     });
   });
 
-  describe('.track()', function() {
+  describe('.track()', function(){
     it('should map track calls correctly', function(done){
       var json = test.fixture('track-basic');
       test
@@ -191,7 +191,7 @@ describe('Amplitude', function() {
     });
   });
 
-  describe('.identify()', function() {
+  describe('.identify()', function(){
     it('should map identify calls correctly', function(done){
       var json = test.fixture('identify-basic');
       test
