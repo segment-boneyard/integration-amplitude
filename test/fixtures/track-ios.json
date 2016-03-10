@@ -44,7 +44,7 @@
     "session_id": 1,
     "event_id": 1,
     "app_version": "app-version",
-    "platform": "analytics-ios",
+    "platform": "iOS",
     "os_name": "iOS",
     "os_version": "os-version",
     "device_brand": "device-brand",

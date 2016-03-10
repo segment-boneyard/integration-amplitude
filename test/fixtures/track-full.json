@@ -17,7 +17,7 @@
         "manufacturer": "device-manufacturer"
       },
       "locale": "en-US",
-      "library": { "name": "analytics-ios" },
+      "library": { "name": "analytics.js" },
       "app": { "version": "app-version" },
       "os": {
         "name": "os-name",
@@ -43,7 +43,7 @@
     "session_id": 1,
     "event_id": 1,
     "app_version": "app-version",
-    "platform": "analytics-ios",
+    "platform": "Web",
     "os_name": "os-name",
     "os_version": "os-version",
     "device_brand": "device-brand",

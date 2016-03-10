@@ -18,7 +18,7 @@
         "idfa": "device-idfa"
       },
       "locale": "en-US",
-      "library": { "name": "analytics-ios" },
+      "library": { "name": "analytics-android" },
       "app": { "version": "app-version" },
       "os": {
         "name": "Android",
@@ -44,7 +44,7 @@
     "session_id": 1,
     "event_id": 1,
     "app_version": "app-version",
-    "platform": "analytics-ios",
+    "platform": "Android",
     "os_name": "Android",
     "os_version": "os-version",
     "device_brand": "device-brand",
