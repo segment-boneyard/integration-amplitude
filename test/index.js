@@ -202,8 +202,23 @@ describe('Amplitude', function(){
         .expects(200, done);
     });
 
-    it('should map identify calls properly', function(done){
+    it('should map identify with full context properly', function(done){
       var json = test.fixture('identify-full');
+      test
+        .set(settings)
+        .identify(json.input)
+        .query('api_key', settings.apiKey)
+        .query('identification', json.output, JSON.parse)
+        .expects(200, done);
+    });
+
+    it('it should generate a unique deviceId for android version 1.4.4', function(done){
+      var json = test.fixture('identify-full');
+      json.input.context.library.name = 'analytics-android';
+      json.input.context.library.version = '1.4.4';
+      json.output.device_id = 'user-id:device-model:device-id';
+      json.output.platform = 'Android';
+
       test
         .set(settings)
         .identify(json.input)
