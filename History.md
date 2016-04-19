@@ -1,4 +1,10 @@
 
+1.0.14 / 2016-04-19
+===================
+
+  * stringify device.type to avoid uncaught exception
+  * don't set platform if invalid value
+
 1.0.13 / 2016-03-24
 ===================
 
