@@ -189,6 +189,29 @@ describe('Amplitude', function(){
         .track(json.input)
         .error(done);
     });
+
+    it('should prevent uncaught exceptions for manually sent context properties', function(done){
+      var json = test.fixture('track-bad');
+
+      test
+        .set(settings)
+        .track(json.input)
+        .query('api_key', settings.apiKey)
+        .query('event', json.output, JSON.parse)
+        .expects(200, done);
+    });
+
+    it('should prevent not send platform value if invalid', function(done){
+      var json = test.fixture('track-bad');
+      json.input.context.device.type = 'bogus';
+
+      test
+        .set(settings)
+        .track(json.input)
+        .query('api_key', settings.apiKey)
+        .query('event', json.output, JSON.parse)
+        .expects(200, done);
+    });
   });
 
   describe('.identify()', function(){
