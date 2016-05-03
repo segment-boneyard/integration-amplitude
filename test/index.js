@@ -74,6 +74,12 @@ describe('Amplitude', function(){
       });
     });
 
+    describe('group', function(){
+      it('should map groupId', function(){
+        test.maps('group-basic');
+      });
+    });
+
     it('should remove `event_id`, `revenue`, `language` and `amplitude_event_type` from properties', function(){
       test.maps('clean');
     });
@@ -255,6 +261,18 @@ describe('Amplitude', function(){
         .set({ apiKey: 'foo' })
         .identify(json.input)
         .error(done);
+    });
+  });
+
+  describe('.group()', function(){
+    it('should map group calls correctly', function(done){
+      var json = test.fixture('group-basic');
+      test
+        .set(settings)
+        .group(json.input)
+        .query('api_key', settings.apiKey)
+        .query('identification', json.output, JSON.parse)
+        .expects(200, done);
     });
   });
 });
