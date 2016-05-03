@@ -201,9 +201,8 @@ describe('Amplitude', function(){
         .expects(200, done);
     });
 
-    it('should prevent not send platform value if invalid', function(done){
-      var json = test.fixture('track-bad');
-      json.input.context.device.type = 'bogus';
+    it('should send library value if platform is invalid', function(done){
+      var json = test.fixture('track-analytics-php');
 
       test
         .set(settings)

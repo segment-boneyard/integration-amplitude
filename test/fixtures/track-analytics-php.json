@@ -14,14 +14,12 @@
         "id": "device-id",
         "model": "device-model",
         "brand": "device-brand",
-        "manufacturer": "device-manufacturer",
-        "type": 1
+        "manufacturer": "device-manufacturer"
       },
       "locale": "en-US",
-      "library": { "name": 2 },
+      "library": { "name": "analytics-php" },
       "app": { "version": "app-version" },
       "os": {
-        "name": "os-name",
         "version": "os-version"
       },
       "network": { "carrier": "carrier" },
@@ -44,9 +42,8 @@
     "session_id": 1,
     "event_id": 1,
     "app_version": "app-version",
-    "os_name": "os-name",
     "os_version": "os-version",
-    "platform": "1",
+    "platform": "analytics-php",
     "device_brand": "device-brand",
     "carrier": "carrier",
     "device_id": "device-id",
