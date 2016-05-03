@@ -1,0 +1,29 @@
+{
+  "input": {
+    "type": "group",
+    "groupId": "0e8c78ea9d97a7b8185e8632",
+    "userId": "user-id",
+    "event": "my-event",
+    "timestamp": "2014",
+    "properties": {
+      "revenue": 19.99,
+      "property": true
+    },
+    "traits": {
+      "address": {
+        "country": "some-country"
+      }
+    }
+  },
+  "output": {
+    "user_id": "user-id",
+    "time": 1388534400000,
+    "user_properties": {
+      "[Segment] Group": "0e8c78ea9d97a7b8185e8632"
+    },
+    "groups": {
+      "[Segment] Group": "0e8c78ea9d97a7b8185e8632"
+    }
+  }
+}
+
