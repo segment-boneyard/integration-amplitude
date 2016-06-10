@@ -1,4 +1,9 @@
 
+1.1.0 / 2016-06-10
+==================
+
+  * map segment group to amplitude identify group
+
 1.0.15 / 2016-05-03
 ===================
 
