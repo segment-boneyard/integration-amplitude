@@ -217,6 +217,28 @@ describe('Amplitude', function(){
         .query('event', json.output, JSON.parse)
         .expects(200, done);
     });
+
+    it('should track basic revenue fields', function(done){
+      var json = test.fixture('track-basic-revenue');
+
+      test
+        .set(settings)
+        .track(json.input)
+        .query('api_key', settings.apiKey)
+        .query('event', json.output, JSON.parse)
+        .expects(200, done);
+    });
+
+    it('should track full revenue fields', function(done){
+      var json = test.fixture('track-full-revenue');
+
+      test
+        .set(settings)
+        .track(json.input)
+        .query('api_key', settings.apiKey)
+        .query('event', json.output, JSON.parse)
+        .expects(200, done);
+    });
   });
 
   describe('.identify()', function(){
