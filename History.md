@@ -1,4 +1,9 @@
 
+1.1.2 / 2016-08-02
+==================
+
+  * Only send revenue properties when event has revenue (#20)
+
 1.1.1 / 2016-07-27
 ==================
 
