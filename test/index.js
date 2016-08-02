@@ -239,6 +239,17 @@ describe('Amplitude', function(){
         .query('event', json.output, JSON.parse)
         .expects(200, done);
     });
+
+    it('should not track revenue properties if there is no revenue', function(done){
+      var json = test.fixture('track-basic-no-revenue');
+
+      test
+        .set(settings)
+        .track(json.input)
+        .query('api_key', settings.apiKey)
+        .query('event', json.output, JSON.parse)
+        .expects(200, done);
+    });
   });
 
   describe('.identify()', function(){
