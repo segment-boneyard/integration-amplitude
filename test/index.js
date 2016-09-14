@@ -188,6 +188,16 @@ describe('Amplitude', function(){
         .expects(200, done);
     });
 
+    it('should track analytics.js (unbundled) properly', function(done){
+      var json = test.fixture('track-analyticsjs');
+      test
+        .set(settings)
+        .track(json.input)
+        .query('api_key', settings.apiKey)
+        .query('event', json.output, JSON.parse)
+        .expects(200, done);
+    });
+
     it('should error on invalid creds', function(done){
       var json = test.fixture('track-basic');
       test
