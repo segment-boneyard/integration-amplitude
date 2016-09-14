@@ -1,4 +1,9 @@
 
+2.0.0 / 2016-09-14
+==================
+
+  * Migrate to versioned integration worker, add unbundling support
+
 1.1.2 / 2016-08-02
 ==================
 
