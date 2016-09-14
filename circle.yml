@@ -7,6 +7,8 @@ machine:
   services:
     - redis
     - docker
+  environment:
+    VERSIONED: true
 
 dependencies:
   pre:
