@@ -1,0 +1,32 @@
+{
+  "input": {
+    "type": "page",
+    "userId": "user-id",
+    "timestamp": "2014",
+    "category": "Hello",
+    "properties": {
+      "property": true
+    },
+    "context": {
+      "traits": {
+        "address": {
+          "country": "some-country"
+        }
+      }
+    }
+  },
+  "output": {
+    "country": "some-country",
+    "user_id": "user-id",
+    "time": 1388534400000,
+    "event_type": "Loaded a Page",
+    "library": "segment",
+    "user_properties": {
+      "id": "user-id"
+    },
+    "event_properties": {
+      "category": "Hello",
+      "property": true
+    }
+  }
+}

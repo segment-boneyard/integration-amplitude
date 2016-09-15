@@ -11,7 +11,12 @@ describe('Amplitude', function(){
   var test;
 
   beforeEach(function(){
-    settings = { apiKey: 'ad3c426eb736d7442a65da8174bc1b1b' };
+    settings = {
+      apiKey: 'ad3c426eb736d7442a65da8174bc1b1b',
+      trackAllPages: true,
+      trackCategorizedPages: false,
+      trackNamedPages: false
+    };
     amplitude = new Amplitude(settings);
     test = Test(amplitude, __dirname);
   });
@@ -91,6 +96,7 @@ describe('Amplitude', function(){
 
   describe('.page()', function(){
     it('should map page calls correctly', function(done){
+      settings.trackAllPages = true;
       var json = test.fixture('page-basic');
       test
         .set(settings)
@@ -101,15 +107,121 @@ describe('Amplitude', function(){
     });
 
     it('should record page calls with bad fields correctly', function(done){
+      settings.trackAllPages = true;
       amplitude.page(helpers.page(), done);
     });
 
     it('should error on invalid creds', function(done){
+      settings.trackAllPages = true;
       var json = test.fixture('page-basic');
       test
         .set({ apiKey: 'foo' })
         .page(json.input)
         .error(done);
+    });
+
+    it('should send page when `settings.trackAllPages` is `true`', function(done) {
+      settings.trackAllPages = true;
+      settings.trackNamedPages = false;
+      settings.trackCategorizedPages = false;
+      var json = test.fixture('page-basic');
+
+      test
+        .set({ apiKey: settings.apiKey })
+        .page(json.input)
+        .requests(1)
+        .expects(200, done);
+    });
+
+    it('should not send page when `settings.trackAllPages` is `false`', function(done) {
+      settings.trackAllPages = false;
+      settings.trackNamedPages = false;
+      settings.trackCategorizedPages = false;
+      var json = test.fixture('page-basic');
+
+      test
+        .set({ apiKey: settings.apiKey })
+        .page(json.input)
+        .requests(0)
+        .end(done);
+    });
+
+    it('should send page when `settings.trackCategorizedPages` is `true` and `.category` is present', function(done) {
+      settings.trackAllPages = false;
+      settings.trackNamedPages = false;
+      settings.trackCategorizedPages = true;
+      var json = test.fixture('page-category');
+
+      test
+        .set({ apiKey: settings.apiKey })
+        .page(json.input)
+        .requests(1)
+        .end(done);
+    });
+
+    it('should not send page when `settings.trackCategorizedPages` is `true` and `.category` is missing', function(done) {
+      settings.trackAllPages = false;
+      settings.trackNamedPages = false;
+      settings.trackCategorizedPages = true;
+      var json = test.fixture('page-no-category');
+
+      test
+        .set({ apiKey: settings.apiKey })
+        .page(json.input)
+        .requests(0)
+        .end(done);
+    });
+
+    it('should not send page when `settings.trackCategorizedPages` is `false` and `.category` is present', function(done) {
+      settings.trackAllPages = false;
+      settings.trackNamedPages = false;
+      settings.trackCategorizedPages = false;
+      var json = test.fixture('page-category');
+
+      test
+        .set({ apiKey: settings.apiKey })
+        .page(json.input)
+        .requests(0)
+        .end(done);
+    });
+
+    it('should send page when `settings.trackNamedPages` is `true` and `.name` is present', function(done) {
+      settings.trackAllPages = false;
+      settings.trackNamedPages = true;
+      settings.trackCategorizedPages = false;
+      var json = test.fixture('page-name');
+
+      test
+        .set({ apiKey: settings.apiKey })
+        .page(json.input)
+        .requests(1)
+        .end(done);
+    });
+
+    it('should not send page when `settings.trackNamedPages` is `true` and `.name` is missing', function(done) {
+      settings.trackAllPages = false;
+      settings.trackNamedPages = true;
+      settings.trackCategorizedPages = false;
+      var json = test.fixture('page-no-name');
+
+      test
+        .set({ apiKey: settings.apiKey })
+        .page(json.input)
+        .requests(0)
+        .end(done);
+    });
+
+    it('should not send page when `settings.trackNamedPages` is `false` and `.name` is present', function(done) {
+      settings.trackAllPages = false;
+      settings.trackNamedPages = false;
+      settings.trackCategorizedPages = false;
+      var json = test.fixture('page-name');
+
+      test
+        .set({ apiKey: settings.apiKey })
+        .page(json.input)
+        .requests(0)
+        .end(done);
     });
   });
 
@@ -134,6 +246,110 @@ describe('Amplitude', function(){
         .set({ apiKey: 'foo' })
         .screen(json.input)
         .error(done);
+    });
+
+    it('should send screen when `settings.trackAllPages` is `true`', function(done) {
+      settings.trackAllPages = true;
+      settings.trackNamedPages = false;
+      settings.trackCategorizedPages = false;
+      var json = test.fixture('screen-basic');
+
+      test
+        .set({ apiKey: settings.apiKey })
+        .screen(json.input)
+        .requests(1)
+        .expects(200, done);
+    });
+
+    it('should not send screen when `settings.trackAllPages` is `false`', function(done) {
+      settings.trackAllPages = false;
+      settings.trackNamedPages = false;
+      settings.trackCategorizedPages = false;
+      var json = test.fixture('screen-basic');
+
+      test
+        .set({ apiKey: settings.apiKey })
+        .screen(json.input)
+        .requests(0)
+        .end(done);
+    });
+
+    it('should send screen when `settings.trackCategorizedPages` is `true` and `.category` is present', function(done) {
+      settings.trackAllPages = false;
+      settings.trackNamedPages = false;
+      settings.trackCategorizedPages = true;
+      var json = test.fixture('screen-category');
+
+      test
+        .set({ apiKey: settings.apiKey })
+        .screen(json.input)
+        .requests(1)
+        .end(done);
+    });
+
+    it('should not send screen when `settings.trackCategorizedPages` is `true` and `.category` is missing', function(done) {
+      settings.trackAllPages = false;
+      settings.trackNamedPages = false;
+      settings.trackCategorizedPages = true;
+      var json = test.fixture('screen-no-category');
+
+      test
+        .set({ apiKey: settings.apiKey })
+        .screen(json.input)
+        .requests(0)
+        .end(done);
+    });
+
+    it('should not send screen when `settings.trackCategorizedPages` is `false` and `.category` is present', function(done) {
+      settings.trackAllPages = false;
+      settings.trackNamedPages = false;
+      settings.trackCategorizedPages = false;
+      var json = test.fixture('screen-category');
+
+      test
+        .set({ apiKey: settings.apiKey })
+        .screen(json.input)
+        .requests(0)
+        .end(done);
+    });
+
+    it('should send screen when `settings.trackNamedPages` is `true` and `.name` is present', function(done) {
+      settings.trackAllPages = false;
+      settings.trackNamedPages = true;
+      settings.trackCategorizedPages = false;
+      var json = test.fixture('screen-name');
+
+      test
+        .set({ apiKey: settings.apiKey })
+        .screen(json.input)
+        .requests(1)
+        .end(done);
+    });
+
+    it('should not send screen when `settings.trackNamedPages` is `true` and `.name` is missing', function(done) {
+      settings.trackAllPages = false;
+      settings.trackNamedPages = true;
+      settings.trackCategorizedPages = false;
+      var json = test.fixture('screen-no-name');
+
+      test
+        .set({ apiKey: settings.apiKey })
+        .screen(json.input)
+        .requests(0)
+        .end(done);
+    });
+
+    it('should not send screen when `settings.trackNamedPages` is `false` and `.name` is present', function(done) {
+      settings.trackAllPages = false;
+      settings.trackNamedPages = false;
+      settings.trackCategorizedPages = false;
+      var json = test.fixture('screen-name');
+
+      test
+        .set({ apiKey: settings.apiKey })
+        .screen(json.input)
+        .requests(0)
+        .end(done);
     });
   });
 
