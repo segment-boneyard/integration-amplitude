@@ -1,4 +1,9 @@
 
+3.0.0 / 2016-09-16
+==================
+
+  * Modify page and screen calls to respect track*Pages settings (#23)
+
 2.0.0 / 2016-09-14
 ==================
 
