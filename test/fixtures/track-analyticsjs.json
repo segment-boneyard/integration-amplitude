@@ -45,7 +45,7 @@
     "event_id": 1,
     "app_version": "app-version",
     "platform": "Web",
-    "os_name": "IE 10",
+    "os_name": "IE",
     "os_version": "10",
     "device_brand": "device-brand",
     "carrier": "carrier",
