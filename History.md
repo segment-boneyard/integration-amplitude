@@ -1,4 +1,9 @@
 
+3.0.1 / 2016-09-16
+==================
+
+  * Use correct Amplitude UA parser fork, update tests to match
+
 3.0.0 / 2016-09-16
 ==================
 
