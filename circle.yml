@@ -1,18 +1,13 @@
-
 machine:
   node:
-    version: 0.10.33
-  python:
-    version: 2.7.3
+    version: 0.10.38
   services:
-    - redis
     - docker
-  environment:
-    VERSIONED: true
+    - redis
 
 dependencies:
   pre:
-   - pip install awscli
+   - npm -g install npm@2
 
 deployment:
   push:
