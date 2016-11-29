@@ -51,7 +51,7 @@
     "carrier": "carrier",
     "device_id": "device-id",
     "device_manufacturer": "device-manufacturer",
-    "idfa": "device-idfa",
+    "adid": "device-idfa",
     "ip": "0.0.0.0",
     "language": "English",
     "country": "United States",
