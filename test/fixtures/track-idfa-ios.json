@@ -15,7 +15,7 @@
         "model": "device-model",
         "brand": "device-brand",
         "manufacturer": "device-manufacturer",
-        "idfa": "device-idfa"
+        "advertisingId": "device-advertisingId"
       },
       "locale": "en-US",
       "library": { "name": "analytics-ios" },
@@ -51,7 +51,7 @@
     "carrier": "carrier",
     "device_id": "device-id",
     "device_manufacturer": "device-manufacturer",
-    "idfa": "device-idfa",
+    "idfa": "device-advertisingId",
     "ip": "0.0.0.0",
     "language": "English",
     "country": "United States",

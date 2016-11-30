@@ -394,6 +394,16 @@ describe('Amplitude', function(){
         .expects(200, done);
     });
 
+    it('should track idfa for ios properly', function(done){
+      var json = test.fixture('track-idfa-ios');
+      test
+      .set(settings)
+        .track(json.input)
+        .query('api_key', settings.apiKey)
+        .query('event', json.output, JSON.parse)
+        .expects(200, done);
+    })
+
     it('should track android properly', function(done){
       var json = test.fixture('track-android');
       test
