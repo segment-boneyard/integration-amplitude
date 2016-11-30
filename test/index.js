@@ -414,6 +414,16 @@ describe('Amplitude', function(){
         .expects(200, done);
     });
 
+     it('should track adid for android properly', function(done){
+      var json = test.fixture('track-adid-android');
+      test
+        .set(settings)
+        .track(json.input)
+        .query('api_key', settings.apiKey)
+        .query('event', json.output, JSON.parse)
+        .expects(200, done);
+    });
+
     it('should track analytics.js (unbundled) properly', function(done){
       var json = test.fixture('track-analyticsjs');
       test
