@@ -1,5 +1,5 @@
 {
-  "name": "integration-amplitude",
+  "name": "@astronomerio/integration-amplitude",
   "version": "3.0.1",
   "integration-version": "2016-09-16",
   "private": true,
