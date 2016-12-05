@@ -1,0 +1,73 @@
+{
+  "input": {
+    "type": "track",
+    "userId": "user-id",
+    "event": "my-event",
+    "timestamp": "2014",
+    "properties": {
+      "country": "United States",
+      "revenue": 19.99,
+      "property": true
+    },
+    "context": {
+      "device": {
+        "id": "device-id",
+        "model": "device-model",
+        "brand": "device-brand",
+        "manufacturer": "device-manufacturer",
+        "advertisingId": "device-advertisingId"
+      },
+      "locale": "en-US",
+      "library": { "name": "analytics-android" },
+      "app": { "version": "app-version" },
+      "os": {
+        "name": "Android",
+        "version": "os-version"
+      },
+      "network": { "carrier": "carrier" },
+      "ip": "0.0.0.0",
+      "location": {
+        "latitude": 1.0,
+        "longitude": 1.0
+      }
+    },
+    "integrations": {
+      "Amplitude": {
+        "eventType": "amplitude-event-type",
+        "sessionId": 1,
+        "eventId": 1
+      }
+    }
+  },
+  "output": {
+    "amplitude_event_type": "amplitude-event-type",
+    "session_id": 1,
+    "event_id": 1,
+    "app_version": "app-version",
+    "platform": "Android",
+    "os_name": "Android",
+    "os_version": "os-version",
+    "device_brand": "device-brand",
+    "carrier": "carrier",
+    "device_id": "device-id",
+    "device_manufacturer": "device-manufacturer",
+    "adid": "device-advertisingId",
+    "ip": "0.0.0.0",
+    "language": "English",
+    "country": "United States",
+    "location_lat": 1.0,
+    "location_lng": 1.0,
+    "device_model": "device-model",
+    "user_id": "user-id",
+    "revenue": 19.99,
+    "time": 1388534400000,
+    "event_type": "my-event",
+    "library": "segment",
+    "user_properties": {
+      "id": "user-id"
+    },
+    "event_properties": {
+      "property": true
+    }
+  }
+}
