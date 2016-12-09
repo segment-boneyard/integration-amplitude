@@ -66,6 +66,7 @@
       "id": "user-id"
     },
     "event_properties": {
+      "revenue": 19.99,
       "property": true
     }
   }
