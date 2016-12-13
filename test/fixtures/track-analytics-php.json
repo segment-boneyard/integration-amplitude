@@ -6,7 +6,6 @@
     "timestamp": "2014",
     "properties": {
       "country": "United States",
-      "revenue": 19.99,
       "property": true
     },
     "context": {
@@ -55,7 +54,6 @@
     "location_lng": 1.0,
     "device_model": "device-model",
     "user_id": "user-id",
-    "revenue": 19.99,
     "time": 1388534400000,
     "event_type": "my-event",
     "library": "segment",

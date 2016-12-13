@@ -1,4 +1,9 @@
 
+1.2.0 / 2016-12-13
+==================
+
+  * Send revenue also nested under event_properties for client side parity
+
 1.1.3 / 2016-12-05
 ==================
 
