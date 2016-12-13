@@ -73,6 +73,7 @@
       "id": "user-id"
     },
     "event_properties": {
+      "revenue": 20.50,
       "property": true
     }
   }

@@ -85,7 +85,7 @@ describe('Amplitude', function(){
       });
     });
 
-    it('should remove `event_id`, `revenue`, `language` and `amplitude_event_type` from properties', function(){
+    it('should remove `event_id`, `language` and `amplitude_event_type` from properties', function(){
       test.maps('clean');
     });
 
