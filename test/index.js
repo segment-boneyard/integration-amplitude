@@ -490,21 +490,19 @@ describe('Amplitude', function(){
     it('should map identify calls correctly', function(done){
       var json = test.fixture('identify-basic');
       test
-        .set(settings)
         .identify(json.input)
-        .query('api_key', settings.apiKey)
-        .query('identification', json.output, JSON.parse)
-        .expects(200, done);
+        .sends('api_key=' + settings.apiKey + '&identification=' + encode(JSON.stringify(json.output)))
+        .expects(200)
+        .end(done);
     });
 
     it('should map identify with full context properly', function(done){
       var json = test.fixture('identify-full');
       test
-        .set(settings)
         .identify(json.input)
-        .query('api_key', settings.apiKey)
-        .query('identification', json.output, JSON.parse)
-        .expects(200, done);
+        .sends('api_key=' + settings.apiKey + '&identification=' + encode(JSON.stringify(json.output)))
+        .expects(200)
+        .end(done);
     });
 
     it('it should generate a unique deviceId for android version 1.4.4', function(done){
@@ -517,9 +515,9 @@ describe('Amplitude', function(){
       test
         .set(settings)
         .identify(json.input)
-        .query('api_key', settings.apiKey)
-        .query('identification', json.output, JSON.parse)
-        .expects(200, done);
+        .sends('api_key=' + settings.apiKey + '&identification=' + encode(JSON.stringify(json.output)))
+        .expects(200)
+        .end(done);
     });
 
     it('should error on invalid creds', function(done){
@@ -535,11 +533,10 @@ describe('Amplitude', function(){
     it('should map group calls correctly', function(done){
       var json = test.fixture('group-basic');
       test
-        .set(settings)
         .group(json.input)
-        .query('api_key', settings.apiKey)
-        .query('identification', json.output, JSON.parse)
-        .expects(200, done);
+        .sends('api_key=' + settings.apiKey + '&identification=' + encode(JSON.stringify(json.output)))
+        .expects(200)
+        .end(done);
     });
   });
 });
