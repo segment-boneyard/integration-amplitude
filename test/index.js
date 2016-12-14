@@ -102,9 +102,9 @@ describe('Amplitude', function(){
       test
         .set(settings)
         .page(json.input)
-        .query('api_key', settings.apiKey)
-        .query('event', json.output, JSON.parse)
-        .expects(200, done);
+        .sends('api_key=' + settings.apiKey + '&event=' + encode(JSON.stringify(json.output)))
+        .expects(200)
+        .end(done);
     });
 
     it('should record page calls with bad fields correctly', function(done){
@@ -232,9 +232,9 @@ describe('Amplitude', function(){
       test
         .set(settings)
         .screen(json.input)
-        .query('api_key', settings.apiKey)
-        .query('event', json.output, JSON.parse)
-        .expects(200, done);
+        .sends('api_key=' + settings.apiKey + '&event=' + encode(JSON.stringify(json.output)))
+        .expects(200)
+        .end(done);
     });
 
     it('should be able to process screen calls with bad fields', function(done){
