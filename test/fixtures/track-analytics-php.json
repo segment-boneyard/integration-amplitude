@@ -37,29 +37,30 @@
     }
   },
   "output": {
+    "user_id": "user-id",
+    "device_id": "device-id",
+    "time": 1388534400000,
+    "library": "segment",
+    "app_version": "app-version",
+
+    "os_version": "os-version",
+    "carrier": "carrier",
+    "device_model": "device-model",
+    "device_brand": "device-brand",
+    "device_manufacturer": "device-manufacturer",
+    "location_lat": 1.0,
+    "location_lng": 1.0,
+    "ip": "0.0.0.0",
     "amplitude_event_type": "amplitude-event-type",
     "session_id": 1,
     "event_id": 1,
-    "app_version": "app-version",
-    "os_version": "os-version",
-    "platform": "analytics-php",
-    "device_brand": "device-brand",
-    "carrier": "carrier",
-    "device_id": "device-id",
-    "device_manufacturer": "device-manufacturer",
-    "ip": "0.0.0.0",
     "language": "English",
     "country": "United States",
-    "location_lat": 1.0,
-    "location_lng": 1.0,
-    "device_model": "device-model",
-    "user_id": "user-id",
-    "time": 1388534400000,
-    "event_type": "my-event",
-    "library": "segment",
+    "platform": "analytics-php",
     "user_properties": {
       "id": "user-id"
     },
+    "event_type": "my-event",
     "event_properties": {
       "property": true
     }
