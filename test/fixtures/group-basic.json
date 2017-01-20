@@ -18,12 +18,11 @@
   "output": {
     "user_id": "user-id",
     "time": 1388534400000,
-    "user_properties": {
+    "groups": {
       "[Segment] Group": "0e8c78ea9d97a7b8185e8632"
     },
-    "groups": {
+    "user_properties": {
       "[Segment] Group": "0e8c78ea9d97a7b8185e8632"
     }
   }
 }
-

@@ -1,8 +1,8 @@
 {
   "input": {
     "type": "track",
-    "userId": "user-id",
     "event": "my-event",
+    "userId": "user-id",
     "timestamp": "2014",
     "properties": {
       "property": true
@@ -16,14 +16,14 @@
     }
   },
   "output": {
-    "country": "some-country",
     "user_id": "user-id",
     "time": 1388534400000,
-    "event_type": "my-event",
     "library": "segment",
+    "country": "some-country",
     "user_properties": {
       "id": "user-id"
     },
+    "event_type": "my-event",
     "event_properties": {
       "property": true
     }
