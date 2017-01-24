@@ -1,6 +1,6 @@
 {
   "name": "integration-amplitude",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "integration-version": "2016-08-02",
   "private": true,
   "description": "Amplitude server-side integration",
