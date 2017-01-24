@@ -15,14 +15,14 @@
     }
   },
   "output": {
-    "country": "some-country",
     "user_id": "user-id",
     "time": 1388534400000,
-    "event_type": "Loaded a Screen",
     "library": "segment",
+    "country": "some-country",
     "user_properties": {
       "id": "user-id"
     },
+    "event_type": "Loaded a Screen",
     "event_properties": {
       "property": true
     }

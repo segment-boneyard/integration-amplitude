@@ -16,9 +16,9 @@
   },
   "output": {
     "user_id": "user-id",
-    "country": "some-country",
     "time": 1388534400000,
     "library": "segment",
+    "country": "some-country",
     "user_properties": {
       "id": "user-id"
     }
