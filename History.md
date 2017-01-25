@@ -1,3 +1,7 @@
+2.0.0 / 2017-01-24
+=================
+
+ * Refactors from GET to POST request to resolve URI too long error
 
 1.2.0 / 2016-12-13
 ==================
