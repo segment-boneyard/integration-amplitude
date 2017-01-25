@@ -1,3 +1,7 @@
+3.1.2 / 2017-01-24
+==================
+
+ * Changes GET to POST request to resolve URI too long error
 
 3.1.0 / 2016-12-13
 ==================
