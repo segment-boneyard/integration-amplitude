@@ -18,7 +18,7 @@
     "lodash.some": "^4.6.0",
     "obj-case": "^0.1.1",
     "reject": "0.0.1",
-    "segmentio-integration": "^5.0.1",
+    "segmentio-integration": "^5.1.0",
     "to-title-case": "^0.1.5",
     "ua-parser-js": "git+https://github.com/amplitude/ua-parser-js.git#fbdb1dc",
     "urlencode": "^1.1.0"
