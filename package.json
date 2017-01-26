@@ -24,6 +24,11 @@
     "urlencode": "^1.1.0"
   },
   "devDependencies": {
+    "@segment/eslint-config": "^3.4.0",
+    "eslint": "^2.13.1",
+    "eslint-plugin-mocha": "^2.2.0",
+    "eslint-plugin-react": "^4.3.0",
+    "eslint-plugin-require-path-exists": "^1.1.5",
     "istanbul": "0.x",
     "jscs": "1.x",
     "locale-string": "1.1.0",
