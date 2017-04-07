@@ -36,7 +36,7 @@
     "obj-case": "^0.1.1",
     "reject": "0.0.1",
     "segmentio-facade": "2.x",
-    "segmentio-integration-tester": "1.x",
+    "segmentio-integration-tester": "2.x",
     "should": "4.x",
     "to-title-case": "^0.1.5",
     "uid": "0.0.2",
