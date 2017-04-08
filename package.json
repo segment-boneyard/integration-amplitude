@@ -1,6 +1,6 @@
 {
   "name": "@segment/integration-amplitude",
-  "version": "4.1.0",
+  "version": "4.2.0",
   "description": "Amplitude server-side integration",
   "author": "Segment <friends@segment.com>",
   "repository": {

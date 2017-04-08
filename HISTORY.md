@@ -1,4 +1,9 @@
 
+4.2.0 / 2017-04-07
+==================
+
+  * Add option to map custom prop under user or event properties to send query params
+
 4.1.0 / 2017-03-08
 ==================
 
