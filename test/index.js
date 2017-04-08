@@ -16,7 +16,8 @@ describe('Amplitude', function(){
       apiKey: 'ad3c426eb736d7442a65da8174bc1b1b',
       trackAllPages: true,
       trackCategorizedPages: false,
-      trackNamedPages: false
+      trackNamedPages: false,
+      mapQueryParams: {}
     };
     amplitude = new Amplitude(settings);
     test = Test(amplitude, __dirname);
@@ -121,6 +122,7 @@ describe('Amplitude', function(){
         .error(done);
     });
 
+
     it('should send page when `settings.trackAllPages` is `true`', function(done) {
       settings.trackAllPages = true;
       settings.trackNamedPages = false;
@@ -131,6 +133,19 @@ describe('Amplitude', function(){
         .set({ apiKey: settings.apiKey })
         .page(json.input)
         .requests(1)
+        .expects(200, done);
+    });
+
+    it('should send page with query params when `settings.mapQueryParams` is set', function(done) {
+      settings.trackAllPages = true;
+      settings.trackNamedPages = false;
+      settings.trackCategorizedPages = false;
+      settings.mapQueryParams = { search: 'user_properties' }
+      var json = test.fixture('page-query-params');
+
+      test
+        .set(settings)
+        .page(json.input)
         .expects(200, done);
     });
 
@@ -156,7 +171,6 @@ describe('Amplitude', function(){
       test
         .set({ apiKey: settings.apiKey })
         .page(json.input)
-        .requests(1)
         .end(done);
     });
 
@@ -195,7 +209,6 @@ describe('Amplitude', function(){
       test
         .set({ apiKey: settings.apiKey })
         .page(json.input)
-        .requests(1)
         .end(done);
     });
 
@@ -258,7 +271,19 @@ describe('Amplitude', function(){
       test
         .set({ apiKey: settings.apiKey })
         .screen(json.input)
-        .requests(1)
+        .expects(200, done);
+    });
+
+    it('should send screen with query params when `settings.mapQueryParams` is set', function(done) {
+      settings.trackAllPages = true;
+      settings.trackNamedPages = false;
+      settings.trackCategorizedPages = false;
+      settings.mapQueryParams = { search: 'user_properties' }
+      var json = test.fixture('screen-query-params');
+
+      test
+        .set({ apiKey: settings.apiKey })
+        .screen(json.input)
         .expects(200, done);
     });
 
@@ -358,6 +383,18 @@ describe('Amplitude', function(){
     it('should map track calls correctly', function(done){
       var json = test.fixture('track-basic');
       test
+        .track(json.input)
+        .sends('api_key=' + settings.apiKey + '&event=' + encode(JSON.stringify(json.output)))
+        .expects(200)
+        .end(done);
+    });
+
+    it('should map track calls correctly with query params if set', function(done){
+      var json = test.fixture('track-query-params');
+      settings.mapQueryParams = { search: 'event_properties' }; // default is user_properties but that has been tested already
+
+      test
+        .set(settings)
         .track(json.input)
         .sends('api_key=' + settings.apiKey + '&event=' + encode(JSON.stringify(json.output)))
         .expects(200)
@@ -490,6 +527,19 @@ describe('Amplitude', function(){
     it('should map identify calls correctly', function(done){
       var json = test.fixture('identify-basic');
       test
+        .identify(json.input)
+        .sends('api_key=' + settings.apiKey + '&identification=' + encode(JSON.stringify(json.output)))
+        .expects(200)
+        .end(done);
+    });
+
+    it('should map query params as user_properties if settings are set', function(done){
+      var json = test.fixture('identify-query-params');
+
+      settings.mapQueryParams = { search: 'event_properties' }; // this should be overriden to user_properties
+
+      test
+        .set(settings)
         .identify(json.input)
         .sends('api_key=' + settings.apiKey + '&identification=' + encode(JSON.stringify(json.output)))
         .expects(200)

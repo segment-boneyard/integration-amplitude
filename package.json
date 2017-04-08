@@ -1,6 +1,6 @@
 {
   "name": "@segment/integration-amplitude",
-  "version": "4.1.0",
+  "version": "4.2.0",
   "description": "Amplitude server-side integration",
   "author": "Segment <friends@segment.com>",
   "repository": {
@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "locale-string": "^1.0.0",
+    "lodash": "^4.17.4",
     "lodash.some": "^4.6.0",
     "obj-case": "^0.1.1",
     "reject": "0.0.1",
