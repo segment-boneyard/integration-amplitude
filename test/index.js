@@ -17,9 +17,7 @@ describe('Amplitude', function(){
       trackAllPages: true,
       trackCategorizedPages: false,
       trackNamedPages: false,
-      mapQueryParams: {
-        'search': 'user_properties'
-      }
+      mapQueryParams: {}
     };
     amplitude = new Amplitude(settings);
     test = Test(amplitude, __dirname);
@@ -142,6 +140,7 @@ describe('Amplitude', function(){
       settings.trackAllPages = true;
       settings.trackNamedPages = false;
       settings.trackCategorizedPages = false;
+      settings.mapQueryParams = { search: 'user_properties' }
       var json = test.fixture('page-query-params');
 
       test
@@ -279,6 +278,7 @@ describe('Amplitude', function(){
       settings.trackAllPages = true;
       settings.trackNamedPages = false;
       settings.trackCategorizedPages = false;
+      settings.mapQueryParams = { search: 'user_properties' }
       var json = test.fixture('screen-query-params');
 
       test
@@ -391,8 +391,10 @@ describe('Amplitude', function(){
 
     it('should map track calls correctly with query params if set', function(done){
       var json = test.fixture('track-query-params');
-      settings.mapQueryParams.search = 'event_properties'; // default is user_properties but that has bene tested already
+      settings.mapQueryParams = { search: 'event_properties' }; // default is user_properties but that has been tested already
+
       test
+        .set(settings)
         .track(json.input)
         .sends('api_key=' + settings.apiKey + '&event=' + encode(JSON.stringify(json.output)))
         .expects(200)
@@ -525,6 +527,19 @@ describe('Amplitude', function(){
     it('should map identify calls correctly', function(done){
       var json = test.fixture('identify-basic');
       test
+        .identify(json.input)
+        .sends('api_key=' + settings.apiKey + '&identification=' + encode(JSON.stringify(json.output)))
+        .expects(200)
+        .end(done);
+    });
+
+    it('should map query params as user_properties if settings are set', function(done){
+      var json = test.fixture('identify-query-params');
+
+      settings.mapQueryParams = { search: 'event_properties' }; // this should be overriden to user_properties
+
+      test
+        .set(settings)
         .identify(json.input)
         .sends('api_key=' + settings.apiKey + '&identification=' + encode(JSON.stringify(json.output)))
         .expects(200)
