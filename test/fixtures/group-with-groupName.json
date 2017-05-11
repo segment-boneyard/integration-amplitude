@@ -2,18 +2,9 @@
   "input": {
     "type": "group",
     "groupId": "sports",
-    "userId": "ccnixon",
+    "userId": "group-user",
     "event": "my-event",
     "timestamp": "2014",
-    "properties": {
-      "revenue": 19.99,
-      "property": true
-    },
-    "traits": {
-      "address": {
-        "country": "some-country"
-      }
-    },
     "integrations": {
       "Amplitude": {
         "groupName": ["baseball", "football"]
@@ -21,7 +12,7 @@
     }
   },
   "output": {
-    "user_id": "ccnixon",
+    "user_id": "group-user",
     "time": 1388534400000,
     "groups": {
       "company_id": "sports",
