@@ -13,7 +13,7 @@ describe('Amplitude', function(){
 
   beforeEach(function(){
     settings = {
-      apiKey: 'ad3c426eb736d7442a65da8174bc1b1b',
+      apiKey: '4e3df7bd447077d4cb94eecc102ea185',
       trackAllPages: true,
       trackCategorizedPages: false,
       trackNamedPages: false,
@@ -582,6 +582,18 @@ describe('Amplitude', function(){
   describe('.group()', function(){
     it('should map group calls correctly', function(done){
       var json = test.fixture('group-basic');
+      test
+        .group(json.input)
+        .sends('api_key=' + settings.apiKey + '&identification=' + encode(JSON.stringify(json.output)))
+        .expects(200)
+        .end(done);
+    });
+
+    it.only('should map a user to multiple groups', function(done){
+      var json = test.fixture('group-with-groupName');
+      var time = Date.now();
+      json.input.timestamp = time;
+      json.output.time = time;
       test
         .group(json.input)
         .sends('api_key=' + settings.apiKey + '&identification=' + encode(JSON.stringify(json.output)))
