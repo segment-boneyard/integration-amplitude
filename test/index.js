@@ -555,6 +555,16 @@ describe('Amplitude', function(){
         .end(done);
     });
 
+    it('should map identify with groups if `group` is an integration specific option', function(done){
+      var json = test.fixture('identify-with-group');
+
+      test
+        .identify(json.input)
+        .sends('api_key=' + settings.apiKey + '&identification=' + encode(JSON.stringify(json.output)))
+        .expects(200)
+        .end(done);
+    });
+
     it('it should generate a unique deviceId for android version 1.4.4', function(done){
       var json = test.fixture('identify-full');
       json.input.context.library.name = 'analytics-android';

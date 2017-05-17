@@ -1,0 +1,26 @@
+{
+  "input": {
+    "type": "identify",
+    "userId": "group-user-123",
+    "timestamp": "2016",
+    "integrations": {
+      "Amplitude": {
+        "groups": {
+          "foobar": ["basketball", "soccer"]
+        }
+      }
+    }
+  },
+  "output": {
+    "user_id": "group-user-123",
+    "time": 1451606400000,
+    "library": "segment",
+    "user_properties": {
+      "id": "group-user-123",
+      "foobar": ["basketball", "soccer"]
+    },
+    "groups": {
+      "foobar": ["basketball", "soccer"]
+    }
+  }
+}

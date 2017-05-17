@@ -1,4 +1,9 @@
 
+4.3.0 / 2017-05-17
+==================
+
+* Add support for Amplitude's `group` functionality
+
 4.2.1 / 2017-04-17
 ==================
 
