@@ -598,5 +598,15 @@ describe('Amplitude', function(){
         .expects(200)
         .end(done);
     });
+
+    it('should map a user to multiple groups', function(done){
+      var json = test.fixture('group-with-groupName');
+
+      test
+        .group(json.input)
+        .sends('api_key=' + settings.apiKey + '&identification=' + encode(JSON.stringify(json.output)))
+        .expects(200)
+        .end(done);
+    });
   });
 });

@@ -1,0 +1,23 @@
+{
+  "input": {
+    "type": "group",
+    "groupId": "sports",
+    "userId": "group-user",
+    "event": "my-event",
+    "timestamp": "2014",
+    "integrations": {
+      "Amplitude": {
+        "groupName": ["baseball", "football"]
+      }
+    }
+  },
+  "output": {
+    "user_id": "group-user",
+    "time": 1388534400000,
+    "groups": {
+      "company_id": "sports",
+      "company_name": ["baseball", "football"]
+    }
+  }
+}
+
