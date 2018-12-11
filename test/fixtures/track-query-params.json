@@ -9,15 +9,21 @@
       "property": true
     },
     "context": {
+      "page": {
+        "path": "/academy/",
+        "referrer": "",
+        "search": "?suh=dude&yo=man",
+        "title": "Analytics Academy",
+        "url": "https://segment.com/academy/"
+      },
       "device": {
         "id": "device-id",
         "model": "device-model",
         "brand": "device-brand",
-        "manufacturer": "device-manufacturer",
-        "type": 1
+        "manufacturer": "device-manufacturer"
       },
       "locale": "en-US",
-      "library": { "name": 2 },
+      "library": { "name": "analytics.js" },
       "app": { "version": "app-version" },
       "os": {
         "name": "os-name",
@@ -58,14 +64,14 @@
     "event_id": 1,
     "language": "English",
     "country": "United States",
-    "platform": "1",
-
+    "platform": "Web",
     "user_properties": {
       "id": "user-id"
     },
-    "event_type": "my-event",
     "event_properties": {
+      "search": "?suh=dude&yo=man",
       "property": true
-    }
+    },
+    "event_type": "my-event"
   }
 }

@@ -1,23 +1,30 @@
 {
   "input": {
-    "type": "track",
+    "type": "screen",
     "userId": "user-id",
-    "event": "my-event",
     "timestamp": "2014",
+    "name": "Analytics iOS",
+    "category": "Docs",
     "properties": {
       "country": "United States",
       "property": true
     },
     "context": {
+      "page": {
+        "path": "/academy/",
+        "referrer": "",
+        "search": "?suh=hello&dude=yo",
+        "title": "Analytics Academy",
+        "url": "https://segment.com/academy/"
+      },
       "device": {
         "id": "device-id",
         "model": "device-model",
         "brand": "device-brand",
-        "manufacturer": "device-manufacturer",
-        "type": 1
+        "manufacturer": "device-manufacturer"
       },
       "locale": "en-US",
-      "library": { "name": 2 },
+      "library": { "name": "analytics-ios" },
       "app": { "version": "app-version" },
       "os": {
         "name": "os-name",
@@ -26,46 +33,38 @@
       "network": { "carrier": "carrier" },
       "ip": "0.0.0.0",
       "location": {
-        "latitude": 1.0,
-        "longitude": 1.0
-      }
-    },
-    "integrations": {
-      "Amplitude": {
-        "eventType": "amplitude-event-type",
-        "sessionId": 1,
-        "eventId": 1
+        "latitude": 40.2964197,
+        "longitude": -76.9411617
       }
     }
   },
   "output": {
-    "user_id": "user-id",
-    "device_id": "device-id",
-    "time": 1388534400000,
-    "library": "segment",
     "app_version": "app-version",
+    "platform": "iOS",
     "os_name": "os-name",
     "os_version": "os-version",
-    "carrier": "carrier",
-    "device_model": "device-model",
     "device_brand": "device-brand",
+    "carrier": "carrier",
+    "device_id": "device-id",
     "device_manufacturer": "device-manufacturer",
-    "location_lat": 1.0,
-    "location_lng": 1.0,
     "ip": "0.0.0.0",
-    "amplitude_event_type": "amplitude-event-type",
-    "session_id": 1,
-    "event_id": 1,
     "language": "English",
     "country": "United States",
-    "platform": "1",
-
+    "latitude": 40.2964197,
+    "longitude": -76.9411617,
+    "device_model": "device-model",
+    "user_id": "user-id",
+    "time": 1388534400000,
+    "event_type": "Viewed Docs Analytics iOS Page",
+    "library": "segment",
     "user_properties": {
-      "id": "user-id"
+      "id": "user-id",
+      "search": "?suh=hello&dude=yo"
     },
-    "event_type": "my-event",
     "event_properties": {
-      "property": true
+      "property": true,
+      "category": "Docs",
+      "name": "Analytics iOS"
     }
   }
 }

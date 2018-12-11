@@ -4,6 +4,7 @@ var helpers = require('./helpers');
 var mapper = require('../lib/mapper');
 var assert = require('assert');
 var Amplitude = require('..');
+var encode = require('urlencode');
 
 describe('Amplitude', function(){
   var amplitude;
@@ -15,7 +16,8 @@ describe('Amplitude', function(){
       apiKey: 'ad3c426eb736d7442a65da8174bc1b1b',
       trackAllPages: true,
       trackCategorizedPages: false,
-      trackNamedPages: false
+      trackNamedPages: false,
+      mapQueryParams: {}
     };
     amplitude = new Amplitude(settings);
     test = Test(amplitude, __dirname);
@@ -85,7 +87,7 @@ describe('Amplitude', function(){
       });
     });
 
-    it('should remove `event_id`, `revenue`, `language` and `amplitude_event_type` from properties', function(){
+    it('should remove `event_id`, `language` and `amplitude_event_type` from properties', function(){
       test.maps('clean');
     });
 
@@ -101,9 +103,9 @@ describe('Amplitude', function(){
       test
         .set(settings)
         .page(json.input)
-        .query('api_key', settings.apiKey)
-        .query('event', json.output, JSON.parse)
-        .expects(200, done);
+        .sends('api_key=' + settings.apiKey + '&event=' + encode(JSON.stringify(json.output)))
+        .expects(200)
+        .end(done);
     });
 
     it('should record page calls with bad fields correctly', function(done){
@@ -120,6 +122,7 @@ describe('Amplitude', function(){
         .error(done);
     });
 
+
     it('should send page when `settings.trackAllPages` is `true`', function(done) {
       settings.trackAllPages = true;
       settings.trackNamedPages = false;
@@ -130,6 +133,19 @@ describe('Amplitude', function(){
         .set({ apiKey: settings.apiKey })
         .page(json.input)
         .requests(1)
+        .expects(200, done);
+    });
+
+    it('should send page with query params when `settings.mapQueryParams` is set', function(done) {
+      settings.trackAllPages = true;
+      settings.trackNamedPages = false;
+      settings.trackCategorizedPages = false;
+      settings.mapQueryParams = { search: 'user_properties' }
+      var json = test.fixture('page-query-params');
+
+      test
+        .set(settings)
+        .page(json.input)
         .expects(200, done);
     });
 
@@ -155,7 +171,6 @@ describe('Amplitude', function(){
       test
         .set({ apiKey: settings.apiKey })
         .page(json.input)
-        .requests(1)
         .end(done);
     });
 
@@ -194,7 +209,6 @@ describe('Amplitude', function(){
       test
         .set({ apiKey: settings.apiKey })
         .page(json.input)
-        .requests(1)
         .end(done);
     });
 
@@ -231,9 +245,9 @@ describe('Amplitude', function(){
       test
         .set(settings)
         .screen(json.input)
-        .query('api_key', settings.apiKey)
-        .query('event', json.output, JSON.parse)
-        .expects(200, done);
+        .sends('api_key=' + settings.apiKey + '&event=' + encode(JSON.stringify(json.output)))
+        .expects(200)
+        .end(done);
     });
 
     it('should be able to process screen calls with bad fields', function(done){
@@ -257,7 +271,19 @@ describe('Amplitude', function(){
       test
         .set({ apiKey: settings.apiKey })
         .screen(json.input)
-        .requests(1)
+        .expects(200, done);
+    });
+
+    it('should send screen with query params when `settings.mapQueryParams` is set', function(done) {
+      settings.trackAllPages = true;
+      settings.trackNamedPages = false;
+      settings.trackCategorizedPages = false;
+      settings.mapQueryParams = { search: 'user_properties' }
+      var json = test.fixture('screen-query-params');
+
+      test
+        .set({ apiKey: settings.apiKey })
+        .screen(json.input)
         .expects(200, done);
     });
 
@@ -357,61 +383,85 @@ describe('Amplitude', function(){
     it('should map track calls correctly', function(done){
       var json = test.fixture('track-basic');
       test
+        .track(json.input)
+        .sends('api_key=' + settings.apiKey + '&event=' + encode(JSON.stringify(json.output)))
+        .expects(200)
+        .end(done);
+    });
+
+    it('should map track calls correctly with query params if set', function(done){
+      var json = test.fixture('track-query-params');
+      settings.mapQueryParams = { search: 'event_properties' }; // default is user_properties but that has been tested already
+
+      test
         .set(settings)
         .track(json.input)
-        .query('api_key', settings.apiKey)
-        .query('event', json.output, JSON.parse)
-        .expects(200, done);
+        .sends('api_key=' + settings.apiKey + '&event=' + encode(JSON.stringify(json.output)))
+        .expects(200)
+        .end(done);
     });
 
     it('should track amplitude properties properly', function(done){
       var json = test.fixture('track-full');
       test
-        .set(settings)
         .track(json.input)
-        .query('api_key', settings.apiKey)
-        .query('event', json.output, JSON.parse)
-        .expects(200, done);
+        .sends('api_key=' + settings.apiKey + '&event=' + encode(JSON.stringify(json.output)))
+        .expects(200)
+        .end(done);
     });
 
     it('should track context properly', function(done){
       var json = test.fixture('track-full');
       test
-        .set(settings)
         .track(json.input)
-        .query('api_key', settings.apiKey)
-        .query('event', json.output, JSON.parse)
-        .expects(200, done);
+        .sends('api_key=' + settings.apiKey + '&event=' + encode(JSON.stringify(json.output)))
+        .expects(200)
+        .end(done);
     });
 
     it('should track ios properly', function(done){
       var json = test.fixture('track-ios');
       test
-        .set(settings)
         .track(json.input)
-        .query('api_key', settings.apiKey)
-        .query('event', json.output, JSON.parse)
-        .expects(200, done);
+        .sends('api_key=' + settings.apiKey + '&event=' + encode(JSON.stringify(json.output)))
+        .expects(200)
+        .end(done);
+    });
+
+    it('should track idfa for ios properly', function(done){
+      var json = test.fixture('track-idfa-ios');
+      test
+        .track(json.input)
+        .sends('api_key=' + settings.apiKey + '&event=' + encode(JSON.stringify(json.output)))
+        .expects(200)
+        .end(done);
     });
 
     it('should track android properly', function(done){
       var json = test.fixture('track-android');
       test
-        .set(settings)
         .track(json.input)
-        .query('api_key', settings.apiKey)
-        .query('event', json.output, JSON.parse)
-        .expects(200, done);
+        .sends('api_key=' + settings.apiKey +'&event=' + encode(JSON.stringify(json.output)))
+        .expects(200)
+        .end(done);
+    });
+
+     it('should track adid for android properly', function(done){
+      var json = test.fixture('track-adid-android');
+      test
+        .track(json.input)
+        .sends('api_key=' + settings.apiKey + '&event=' + encode(JSON.stringify(json.output)))
+        .expects(200)
+        .end(done);
     });
 
     it('should track analytics.js (unbundled) properly', function(done){
       var json = test.fixture('track-analyticsjs');
       test
-        .set(settings)
         .track(json.input)
-        .query('api_key', settings.apiKey)
-        .query('event', json.output, JSON.parse)
-        .expects(200, done);
+        .sends('api_key=' + settings.apiKey +'&event=' + encode(JSON.stringify(json.output)))
+        .expects(200)
+        .end(done);
     });
 
     it('should error on invalid creds', function(done){
@@ -426,55 +476,50 @@ describe('Amplitude', function(){
       var json = test.fixture('track-bad');
 
       test
-        .set(settings)
         .track(json.input)
-        .query('api_key', settings.apiKey)
-        .query('event', json.output, JSON.parse)
-        .expects(200, done);
+        .sends('api_key=' + settings.apiKey + '&event=' + encode(JSON.stringify(json.output)))
+        .expects(200)
+        .end(done);
     });
 
     it('should send library value if platform is invalid', function(done){
       var json = test.fixture('track-analytics-php');
 
       test
-        .set(settings)
         .track(json.input)
-        .query('api_key', settings.apiKey)
-        .query('event', json.output, JSON.parse)
-        .expects(200, done);
+        .sends('api_key=' + settings.apiKey + '&event=' + encode(JSON.stringify(json.output)))
+        .expects(200)
+        .end(done);
     });
 
     it('should track basic revenue fields', function(done){
       var json = test.fixture('track-basic-revenue');
 
       test
-        .set(settings)
         .track(json.input)
-        .query('api_key', settings.apiKey)
-        .query('event', json.output, JSON.parse)
-        .expects(200, done);
+        .sends('api_key=' + settings.apiKey + '&event=' + encode(JSON.stringify(json.output)))
+        .expects(200)
+        .end(done);
     });
 
     it('should track full revenue fields', function(done){
       var json = test.fixture('track-full-revenue');
 
       test
-        .set(settings)
         .track(json.input)
-        .query('api_key', settings.apiKey)
-        .query('event', json.output, JSON.parse)
-        .expects(200, done);
+        .sends('api_key=' + settings.apiKey +'&event=' + encode(JSON.stringify(json.output)))
+        .expects(200)
+        .end(done);
     });
 
     it('should not track revenue properties if there is no revenue', function(done){
       var json = test.fixture('track-basic-no-revenue');
 
       test
-        .set(settings)
         .track(json.input)
-        .query('api_key', settings.apiKey)
-        .query('event', json.output, JSON.parse)
-        .expects(200, done);
+        .sends('api_key=' + settings.apiKey + '&event=' + encode(JSON.stringify(json.output)))
+        .expects(200)
+        .end(done);
     });
   });
 
@@ -482,21 +527,42 @@ describe('Amplitude', function(){
     it('should map identify calls correctly', function(done){
       var json = test.fixture('identify-basic');
       test
+        .identify(json.input)
+        .sends('api_key=' + settings.apiKey + '&identification=' + encode(JSON.stringify(json.output)))
+        .expects(200)
+        .end(done);
+    });
+
+    it('should map query params as user_properties if settings are set', function(done){
+      var json = test.fixture('identify-query-params');
+
+      settings.mapQueryParams = { search: 'event_properties' }; // this should be overriden to user_properties
+
+      test
         .set(settings)
         .identify(json.input)
-        .query('api_key', settings.apiKey)
-        .query('identification', json.output, JSON.parse)
-        .expects(200, done);
+        .sends('api_key=' + settings.apiKey + '&identification=' + encode(JSON.stringify(json.output)))
+        .expects(200)
+        .end(done);
     });
 
     it('should map identify with full context properly', function(done){
       var json = test.fixture('identify-full');
       test
-        .set(settings)
         .identify(json.input)
-        .query('api_key', settings.apiKey)
-        .query('identification', json.output, JSON.parse)
-        .expects(200, done);
+        .sends('api_key=' + settings.apiKey + '&identification=' + encode(JSON.stringify(json.output)))
+        .expects(200)
+        .end(done);
+    });
+
+    it('should map identify with groups if `group` is an integration specific option', function(done){
+      var json = test.fixture('identify-with-group');
+
+      test
+        .identify(json.input)
+        .sends('api_key=' + settings.apiKey + '&identification=' + encode(JSON.stringify(json.output)))
+        .expects(200)
+        .end(done);
     });
 
     it('it should generate a unique deviceId for android version 1.4.4', function(done){
@@ -509,9 +575,9 @@ describe('Amplitude', function(){
       test
         .set(settings)
         .identify(json.input)
-        .query('api_key', settings.apiKey)
-        .query('identification', json.output, JSON.parse)
-        .expects(200, done);
+        .sends('api_key=' + settings.apiKey + '&identification=' + encode(JSON.stringify(json.output)))
+        .expects(200)
+        .end(done);
     });
 
     it('should error on invalid creds', function(done){
@@ -527,11 +593,10 @@ describe('Amplitude', function(){
     it('should map group calls correctly', function(done){
       var json = test.fixture('group-basic');
       test
-        .set(settings)
         .group(json.input)
-        .query('api_key', settings.apiKey)
-        .query('identification', json.output, JSON.parse)
-        .expects(200, done);
+        .sends('api_key=' + settings.apiKey + '&identification=' + encode(JSON.stringify(json.output)))
+        .expects(200)
+        .end(done);
     });
   });
 });

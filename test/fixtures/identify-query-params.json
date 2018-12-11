@@ -1,23 +1,25 @@
 {
   "input": {
-    "type": "track",
+    "type": "identify",
     "userId": "user-id",
     "event": "my-event",
     "timestamp": "2014",
-    "properties": {
-      "country": "United States",
-      "property": true
-    },
     "context": {
       "device": {
         "id": "device-id",
         "model": "device-model",
         "brand": "device-brand",
-        "manufacturer": "device-manufacturer",
-        "type": 1
+        "manufacturer": "device-manufacturer"
       },
       "locale": "en-US",
-      "library": { "name": 2 },
+      "page": {
+        "path": "/academy/",
+        "referrer": "",
+        "search": "?foo=bar",
+        "title": "Analytics Academy",
+        "url": "https://segment.com/academy/"
+      },
+      "library": { "name": "analytics-ios" },
       "app": { "version": "app-version" },
       "os": {
         "name": "os-name",
@@ -28,6 +30,11 @@
       "location": {
         "latitude": 1.0,
         "longitude": 1.0
+      }
+    },
+    "traits": {
+      "address": {
+        "country": "United States"
       }
     },
     "integrations": {
@@ -53,19 +60,12 @@
     "location_lat": 1.0,
     "location_lng": 1.0,
     "ip": "0.0.0.0",
-    "amplitude_event_type": "amplitude-event-type",
-    "session_id": 1,
-    "event_id": 1,
     "language": "English",
     "country": "United States",
-    "platform": "1",
-
+    "platform": "iOS",
     "user_properties": {
-      "id": "user-id"
-    },
-    "event_type": "my-event",
-    "event_properties": {
-      "property": true
+      "id": "user-id",
+      "search": "?foo=bar"
     }
   }
 }

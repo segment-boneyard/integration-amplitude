@@ -7,7 +7,6 @@
     "category": "Docs",
     "properties": {
       "country": "United States",
-      "revenue": 19.99,
       "property": true
     },
     "context": {

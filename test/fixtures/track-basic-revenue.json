@@ -21,20 +21,21 @@
     }
   },
   "output": {
-    "country": "some-country",
     "user_id": "user-id",
-    "revenue": 20.50,
-    "price": 10.25,
-    "quantity": 2,
-    "productId": "com.product.id",
-    "revenueType": "purchase",
     "time": 1388534400000,
-    "event_type": "my-event",
     "library": "segment",
+    "country": "some-country",
     "user_properties": {
       "id": "user-id"
     },
+    "revenue": 20.50,
+    "price": 10.25,
+    "quantity": 2,
+    "revenueType": "purchase",
+    "productId": "com.product.id",
+    "event_type": "my-event",
     "event_properties": {
+      "revenue": 20.50,
       "property": true
     }
   }

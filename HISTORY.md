@@ -1,4 +1,39 @@
 
+4.3.0 / 2017-05-17
+==================
+
+* Add support for Amplitude's `group` functionality
+
+4.2.1 / 2017-04-17
+==================
+
+
+
+4.2.0 / 2017-04-07
+==================
+
+  * Add option to map custom prop under user or event properties to send query params
+
+4.1.0 / 2017-03-08
+==================
+
+  * package: remove "integration-version"
+
+3.1.2 / 2017-01-24
+==================
+
+ * Changes GET to POST request to resolve URI too long error
+
+3.1.0 / 2016-12-13
+==================
+
+  * Send revenue also nested under event_properties for client side parity
+
+3.0.2 / 2016-11-29
+==================
+
+  * Send advertisingId or IDFA for iOS
+
 3.0.1 / 2016-09-16
 ==================
 
