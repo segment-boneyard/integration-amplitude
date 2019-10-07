@@ -1,5 +1,5 @@
 {
-  "name": "@astronomerio/integration-amplitude",
+  "name": "@segment/integration-amplitude",
   "version": "4.3.0",
   "description": "Amplitude server-side integration",
   "author": "Segment <friends@segment.com>",
